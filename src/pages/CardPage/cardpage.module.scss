@@ -1,0 +1,38 @@
+.container {
+  width: 1360px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.cardpage {
+  display: flex;
+  gap: 70px;
+  .item {
+    img {
+      width: calc(8vw + 300px);
+    }
+  }
+  .info {
+    .title {
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 38px;
+      color: #000000;
+      margin-bottom: 25px;
+    }
+    .executor {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+    .article {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+  }
+}

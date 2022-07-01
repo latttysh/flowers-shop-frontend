@@ -1,0 +1,43 @@
+.card {
+  width: 328px;
+  cursor: pointer;
+
+  .img {
+    height: 437px;
+    margin-bottom: 10px;
+  }
+  .text__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    img {
+      cursor: pointer;
+    }
+    .info {
+      .price {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+      }
+      .title {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        color: #000000;
+      }
+      .time {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #8c8c8c;
+      }
+      .rating {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #ff6666;
+      }
+    }
+  }
+}

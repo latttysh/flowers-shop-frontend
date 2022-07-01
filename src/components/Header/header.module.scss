@@ -1,0 +1,33 @@
+.container {
+  width: 1360px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  .logo {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    color: #ff6666;
+    cursor: pointer;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    .item {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: #ff6666;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+  }
+}

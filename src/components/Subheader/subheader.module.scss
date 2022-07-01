@@ -1,0 +1,23 @@
+.container {
+  width: 1360px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.subheader {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+  margin-bottom: 40px;
+  .item {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}
