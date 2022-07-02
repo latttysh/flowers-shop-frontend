@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './cardpage.module.scss';
 
-type Props = {};
+interface CardPageProps {
+  imgUrl: string;
+  title: string;
+  executor: string;
+  article: string;
+}
 
-function CardPage({}: Props) {
+const CardPage: FC<CardPageProps> = ({ imgUrl, title, executor, article }) => {
   return (
     <div className={styles.container}>
       <div className={styles.cardpage}>
@@ -20,6 +25,6 @@ function CardPage({}: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default CardPage;

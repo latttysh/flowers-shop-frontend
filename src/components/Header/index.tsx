@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 
 type Props = {};
@@ -12,9 +13,6 @@ function Header({}: Props) {
           <div className={styles.item}>Доставка</div>
           <div className={styles.item}>Оплата</div>
           <div className={styles.item}>Отзывы</div>
-          <div className={styles.item}>Магазины</div>
-          <div className={styles.item}>EN</div>
-          <div className={styles.item}>Помощь</div>
           <div className={styles.item}>Войти</div>
           <div className={styles.item}>Корзина</div>
         </div>

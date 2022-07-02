@@ -20,12 +20,7 @@ function Main({}: Props) {
           <MenuItem />
         </div>
         <div className={styles.card__menu}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card imgUrl={'123'} title="123123" price="222" time="13213" rating="3223" />
         </div>
       </div>
     </div>

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './card.module.scss';
 
-type Props = {};
+interface CardProps {
+  imgUrl: string;
+  title: string;
+  price: string;
+  time: string;
+  rating: string;
+}
 
-function Card({}: Props) {
+const Card: FC<CardProps> = ({ imgUrl, title, price, time, rating }) => {
   return (
     <div className={styles.card}>
       <div className={styles.img}>
@@ -20,6 +26,6 @@ function Card({}: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
