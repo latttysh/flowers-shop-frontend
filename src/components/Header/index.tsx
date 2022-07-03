@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
+import { useSelector } from 'react-redux';
+import { selectFlowersData } from '../../redux/slices/selectors';
 
 function Header() {
+  const info = useSelector(selectFlowersData);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -19,9 +22,15 @@ function Header() {
           <Link to="/feedback">
             <div className={styles.item}>Отзывы</div>
           </Link>
-          <Link to="/login">
-            <div className={styles.item}>Войти</div>
-          </Link>
+          {info.auth ? (
+            <Link to="/profile">
+              <div className={styles.item}>{info.user.name}</div>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <div className={styles.item}>Войти</div>
+            </Link>
+          )}
           <Link to="/cart">
             <div className={styles.item}>Корзина</div>
           </Link>

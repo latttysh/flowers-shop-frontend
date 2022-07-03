@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchFlowers, fetchOne, fetchLogin } from './asyncActions';
-import { Flowers, FlowersSliceState, Status } from './types';
+import { Flowers, FlowersSliceState, Status, User } from './types';
 
 const initialState: FlowersSliceState = {
   items: [],
@@ -15,7 +15,11 @@ const initialState: FlowersSliceState = {
   },
   status: Status.LOADING,
   auth: false,
-  jwt: "null"
+  user: {
+    _id: "",
+    name: "",
+    email: ""
+  }
 };
 
 const flowersSlice = createSlice({
@@ -61,7 +65,8 @@ const flowersSlice = createSlice({
       // state.oneItem = {null};
     });
     builder.addCase(fetchLogin.fulfilled, (state, action) => {
-      state.jwt = action.payload;
+      state.user = action.payload
+      state.auth = true;
       state.status = Status.SUCCESS;
     });
 

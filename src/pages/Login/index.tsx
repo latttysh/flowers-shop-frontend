@@ -3,10 +3,10 @@ import styles from './login.module.scss';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../redux/store';
-import Card from '../../components/Card';
 import { useSelector } from 'react-redux';
 import { selectFlowersData } from '../../redux/slices/selectors';
 import { fetchLogin } from '../../redux/slices/asyncActions';
+import { Navigate } from 'react-router-dom';
 
 type FormData = {
   email: string;
@@ -28,6 +28,10 @@ function Login({}: Props) {
   const onSubmit = handleSubmit((data) => {
     dispatch(fetchLogin(data));
   });
+
+  if (info.auth) {
+    return <Navigate to="/" />;
+  }
   return (
     <div className={styles.login}>
       <Link to="/">
@@ -41,6 +45,7 @@ function Login({}: Props) {
           <label>Пароль</label>
           <input {...register('password')} type="password" placeholder="Ваш пароль" />
           <button>Войти</button>
+          {info.status === 'error' ? <>Не правильный логин или пароль</> : <></>}
         </form>
       </div>
     </div>

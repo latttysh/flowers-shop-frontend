@@ -7,6 +7,12 @@ export type Flowers = {
   filter: string;
 };
 
+export type User = {
+  _id: string;
+  name: string;
+  email: string;
+}
+
 export type LoginForm = {
   login: string;
   password: string;
@@ -25,5 +31,5 @@ export interface FlowersSliceState {
   oneItem: Flowers;
   cart: Flowers[]
   auth: boolean;
-  jwt: string;
+  user: User;
 }

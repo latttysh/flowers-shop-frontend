@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../axios';
-import { Flowers } from './types';
+import { Flowers, User } from './types';
 
 export const fetchFlowers = createAsyncThunk<Flowers[]>( // create AsyncThunk with Flowers array type
   'flowers/fetchFlowersStatus',
@@ -32,7 +32,7 @@ export const fetchLogin = createAsyncThunk( // create AsyncThunk with Flowers ar
   async (params: Object) => { 
     console.log("Пытаемся авторизоваться");
     
-    const { data } = await axios.post<string>(`http://localhost:4444/login`, params); // get from request (Array Flowers Type)
+    const { data } = await axios.post<User>(`http://localhost:4444/login`, params); // get from request (Array Flowers Type)
     console.log("Итог", data);
     
     return data;
