@@ -13,3 +13,15 @@ export const fetchFlowers = createAsyncThunk<Flowers[]>( // create AsyncThunk wi
     return data;
   },
 );
+
+export const fetchOne = createAsyncThunk( // create AsyncThunk with Flowers array type
+  'flowers/fetchOne',
+  async (id: string) => { 
+    console.log("Загружаем данные...");
+    
+    const { data } = await axios.get<Flowers>(`http://localhost:4444/getone/${id}`); // get from request (Array Flowers Type)
+    console.log("Данные загружены...", data);
+    
+    return data;
+  },
+);

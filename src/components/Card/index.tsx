@@ -8,18 +8,19 @@ interface CardProps {
   price: string;
   time: string;
   rating: string;
+  id: string;
 }
 
-const Card: FC<CardProps> = ({ imgUrl, title, price, time, rating }) => {
+const Card: FC<CardProps> = ({ id, imgUrl, title, price, time, rating }) => {
   return (
     <div className={styles.card}>
-      <Link to="/item/1">
+      <Link to={`/item/${id}`}>
         <div className={styles.img}>
           <img src={imgUrl} alt="" />
         </div>
       </Link>
       <div className={styles.text__block}>
-        <Link to="/items/1">
+        <Link to={`/item/${id}`}>
           <div className={styles.info}>
             <div className={styles.price}>{price} р</div>
             <div className={styles.title}>{title}</div>

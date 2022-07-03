@@ -26,6 +26,7 @@ function Main({}: Props) {
       price={item.price}
       time={'Завтра'}
       rating={'4.7'}
+      id={item._id}
     />
   ));
 

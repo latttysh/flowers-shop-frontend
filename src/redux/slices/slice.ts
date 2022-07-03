@@ -1,9 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchFlowers } from './asyncActions';
+import { fetchFlowers, fetchOne } from './asyncActions';
 import { Flowers, FlowersSliceState, Status } from './types';
 
 const initialState: FlowersSliceState = {
   items: [],
+  oneItem: {
+    id: "null",
+    title: "null",
+    price: "null",
+    imageUrl: "null",
+    type: "null",
+    filter: "null"
+  },
   status: Status.LOADING, // loading | success | error
 };
 
@@ -29,6 +37,20 @@ const flowersSlice = createSlice({
     builder.addCase(fetchFlowers.rejected, (state, action) => {
       state.status = Status.ERROR;
       state.items = [];
+    });
+    builder.addCase(fetchOne.pending, (state, action) => {
+      state.status = Status.LOADING;
+      // state.oneItem = {null};
+    });
+
+    builder.addCase(fetchOne.fulfilled, (state, action) => {
+      state.oneItem = action.payload;
+      state.status = Status.SUCCESS;
+    });
+
+    builder.addCase(fetchOne.rejected, (state, action) => {
+      state.status = Status.ERROR;
+      // state.oneItem = {};
     });
   },
 });
