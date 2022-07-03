@@ -1,14 +1,7 @@
 import React, { FC } from 'react';
 import styles from './cardpage.module.scss';
 
-interface CardPageProps {
-  imgUrl: string;
-  title: string;
-  executor: string;
-  article: string;
-}
-
-const CardPage: FC<CardPageProps> = ({ imgUrl, title, executor, article }) => {
+const CardPage: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cardpage}>

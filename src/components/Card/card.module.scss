@@ -1,10 +1,19 @@
 .card {
   width: 328px;
+  height: 536px;
   cursor: pointer;
 
   .img {
     height: 437px;
+    width: 328px;
     margin-bottom: 10px;
+
+    img {
+      width: 328px;
+      height: 437px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
   }
   .text__block {
     display: flex;

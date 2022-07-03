@@ -22,7 +22,7 @@ function App() {
       {location.pathname !== '/login' ? <Subheader /> : null}
       <Routes>
         <Route path="/" element={<Main />} />
-        {/* <Route path="/item/:id" element={<CardPage />} /> */}
+        <Route path="/item/:id" element={<CardPage />} />
       </Routes>
     </>
   );
