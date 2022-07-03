@@ -27,7 +27,7 @@ const CardPage: FC = () => {
           <div className={styles.info}>
             <div className={styles.title}>{info.oneItem.title}</div>
             <div className={styles.executor}>Исполнитель: Дом цветов</div>
-            <div className={styles.article}>Артикул: 4323123</div>
+            <div className={styles.article}>Артикул: {info.oneItem._id}</div>
           </div>
         </div>
       ) : (

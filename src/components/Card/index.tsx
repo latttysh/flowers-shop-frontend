@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/store';
 import styles from './card.module.scss';
 
 interface CardProps {
@@ -12,6 +13,7 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ id, imgUrl, title, price, time, rating }) => {
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.card}>
       <Link to={`/item/${id}`}>

@@ -1,26 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchFlowers, fetchOne } from './asyncActions';
+import { fetchFlowers, fetchOne, fetchLogin } from './asyncActions';
 import { Flowers, FlowersSliceState, Status } from './types';
 
 const initialState: FlowersSliceState = {
   items: [],
+  cart: [],
   oneItem: {
-    id: "null",
+    _id: "null",
     title: "null",
     price: "null",
     imageUrl: "null",
     type: "null",
     filter: "null"
   },
-  status: Status.LOADING, // loading | success | error
+  status: Status.LOADING,
+  auth: false,
+  jwt: "null"
 };
 
 const flowersSlice = createSlice({
   name: 'flowers',
   initialState,
   reducers: {
-    setItems(state, action: PayloadAction<Flowers[]>) { //Action = Array of Flowers 
-      state.items = action.payload;
+    setItems(state, action) { //Action = Array of Flowers 
+      console.log(action.payload);
+      
     },
   },
   extraReducers: (builder) => {
@@ -49,6 +53,19 @@ const flowersSlice = createSlice({
     });
 
     builder.addCase(fetchOne.rejected, (state, action) => {
+      state.status = Status.ERROR;
+      // state.oneItem = {};
+    });
+    builder.addCase(fetchLogin.pending, (state, action) => {
+      state.status = Status.LOADING;
+      // state.oneItem = {null};
+    });
+    builder.addCase(fetchLogin.fulfilled, (state, action) => {
+      state.jwt = action.payload;
+      state.status = Status.SUCCESS;
+    });
+
+    builder.addCase(fetchLogin.rejected, (state, action) => {
       state.status = Status.ERROR;
       // state.oneItem = {};
     });
